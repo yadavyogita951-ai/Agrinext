@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinext - Modern Farming Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Agrinext</div>
+        <nav>
+            <a href="#courses">Courses</a>
+            <a href="#tutorials">Tutorials</a>
+            <a href="#ai-assistant">AI Assistant</a>
+            <a href="#schemes">Govt Schemes</a>
+        </nav>
+        <button class="login-btn">Login</button>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Smart Crop Suggestion</h1>
+            <div class="prediction-form">
+                <input type="text" id="soilType" placeholder="Enter Soil Type (e.g., Clay, Loamy)">
+                <input type="text" id="weather" placeholder="Enter Weather Condition">
+                <button onclick="suggestCrop()">Get Suggestion</button>
+            </div>
+            <div id="predictionResult" class="result-box"></div>
+        </section>
+
+        <section id="courses" class="grid-container">
+            <div class="card">
+                <h2>Agricultural Courses</h2>
+                <ul>
+                    <li>Organic Farming</li>
+                    <li>Hydroponics</li>
+                    <li>Integrated Pest Management</li>
+                </ul>
+            </div>
+            <div class="card" id="tutorials">
+                <h2>Video Tutorials</h2>
+                <ul>
+                    <li>How to test soil</li>
+                    <li>Drip Irrigation Installation</li>
+                    <li>Reducing Fertilizer Costs</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ai-assistant" class="ai-section">
+            <h2>AI Assistant</h2>
+            <p>Ask any farming question for accurate measures.</p>
+            <textarea placeholder="How can I treat leaf spot?"></textarea>
+            <button>Ask AI</button>
+        </section>
+<section id="schemes" class="schemes-section">
+    <h2>Government Agricultural Schemes (2026 Updates)</h2>
+    <div class="table-wrapper">
+        <table class="schemes-table">
+            <thead>
+                <tr>
+                    <th>Scheme Name</th>
+                    <th>Benefit / Assistance</th>
+                    <th>Key Highlights (2026)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>PM-Kisan</strong></td>
+                    <td>₹6,000 per year</td>
+                    <td>Direct Benefit Transfer (DBT) in 3 installments; e-KYC mandatory.</td>
+                </tr>
+                <tr>
+                    <td><strong>PM Fasal Bima (PMFBY)</strong></td>
+                    <td>Crop Insurance</td>
+                    <td>Covers natural disasters & wild animal attacks; Low premiums (1.5% - 5%).</td>
+                </tr>
+                <tr>
+                    <td><strong>Soil Health Card</strong></td>
+                    <td>Soil Testing</td>
+                    <td>Provides 12-parameter report with crop-specific fertilizer advice.</td>
+                </tr>
+                <tr>
+                    <td><strong>Kisan Credit Card (KCC)</strong></td>
+                    <td>Low-interest Loans</td>
+                    <td>New 6-year validity; covers tech costs like drones & soil testing.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<button onclick="shareProject()" class="share-btn">Share via WhatsApp</button>
+
+<script>
+function shareProject() {
+    const url = window.location.href; // Grabs your live website link
+    const text = "Check out Agrinext - The AI assistant for farmers! " + url;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+}
+</script>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Agrinext - Empowering Farmers</p>
+    </footer>
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="toggleModal()">&times;</span>
+        <h2>Farmer Login</h2>
+        <form id="loginForm">
+            <label>Mobile Number or Email</label>
+            <input type="text" id="username" placeholder="Enter your ID" required>
+            
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            
+            <button type="submit" class="auth-btn">Sign In</button>
+            <p>Don't have an account? <a href="#">Register here</a></p>
+        </form>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
