@@ -1,0 +1,12 @@
+[
+  { "soil": "Clay", "summer": "Tomatoes, Eggplant", "monsoon": "Rice, Jute", "winter": "Fenugreek, Spinach", "weather": "High water retention, moderate temp" },
+  { "soil": "Sandy", "summer": "Watermelon, Cucumber", "monsoon": "Millet, Peanuts", "winter": "Carrots", "weather": "Well-drained, hot and dry" },
+  { "soil": "Loamy", "summer": "Maize, Soyabean", "monsoon": "Cotton", "winter": "Wheat, Mustard", "weather": "Balanced moisture, moderate temp" },
+  { "soil": "Silty", "summer": "Vegetables", "monsoon": "Rice", "winter": "Spinach", "weather": "Moderate water retention, cool temp" },
+  { "soil": "Red", "summer": "Peanuts", "monsoon": "Cotton", "winter": "Wheat", "weather": "Well-drained, hot and humid" },
+  { "soil": "Black", "summer": "Maize", "monsoon": "Cotton", "winter": "Chickpeas", "weather": "High water retention, warm temp" },
+  { "soil": "Peat", "summer": "Vegetable", "monsoon": "Rice", "winter": "Lettuce", "weather": "Acidic, high water retention, cool temp" },
+  { "soil": "Forest", "summer": "Fruit plants", "monsoon": "Bamboo", "winter": "Spices", "weather": "High organic matter, moderate temp" },
+  { "soil": "Rocky", "summer": "Cactus", "monsoon": "None", "winter": "None", "weather": "Poor water retention, extreme temp" },
+  { "soil": "Silt", "summer": "Vegetables", "monsoon": "Rice", "winter": "Wheat", "weather": "Moderate water retention, cool temp" }
+]
