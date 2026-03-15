@@ -52,3 +52,42 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         alert("Invalid credentials. Try admin / 1234");
     }
 });
+async function suggestCrop() {
+    const soilInput = document.getElementById('soilType').value.trim();
+    const seasonInput = document.getElementById('weather').value.toLowerCase(); // Using the weather box for season
+    const resultDiv = document.getElementById('predictionResult');
+
+    if (!soilInput) {
+        alert("Please enter a soil type first!");
+        return;
+    }
+
+    try {
+        const response = await fetch('data.json');
+        const cropData = await response.json();
+
+        // Search for the soil type (case insensitive)
+        const match = cropData.find(item => item.soil.toLowerCase() === soilInput.toLowerCase());
+
+        if (match) {
+            let cropSuggestion = "";
+            // Logic to pick the right column based on user input
+            if (seasonInput.includes("summer")) cropSuggestion = match.summer;
+            else if (seasonInput.includes("monsoon") || seasonInput.includes("rain")) cropSuggestion = match.monsoon;
+            else if (seasonInput.includes("winter") || seasonInput.includes("cold")) cropSuggestion = match.winter;
+            else cropSuggestion = `Summer: ${match.summer}, Monsoon: ${match.monsoon}, Winter: ${match.winter}`;
+
+            resultDiv.innerHTML = `
+                <div style="background: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; color: #1b5e20;">
+                    <h3 style="margin-top: 0;">Recommendations for ${match.soil} Soil:</h3>
+                    <p><strong>Recommended Crops:</strong> ${cropSuggestion}</p>
+                    <p><strong>Field Conditions:</strong> ${match.weather}</p>
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = "<p style='color: red;'>Soil type not found. Try 'Clay', 'Black', or 'Red'.</p>";
+        }
+    } catch (error) {
+        resultDiv.innerText = "Error loading crop database.";
+    }
+}
