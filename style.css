@@ -167,32 +167,3 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
-/* 1. Define the logo style */
-.logo {
-    font-family: 'Righteous', sans-serif; /* Or your preferred font */
-    font-size: 2rem;
-    color: #2e7d32;
-    cursor: pointer;
-    transition: all 0.4s ease; /* Smooth transition */
-    display: inline-block;
-}
-
-/* 2. The Glow Hover Effect */
-.logo:hover {
-    color: #4caf50; /* Slightly lighter green on hover */
-    text-shadow: 0 0 10px rgba(76, 175, 80, 0.8), 
-                 0 0 20px rgba(76, 175, 80, 0.5), 
-                 0 0 30px rgba(76, 175, 80, 0.3);
-    transform: scale(1.05); /* Slightly enlarges the logo */
-}
-
-/* 3. The Subtle Pulse (Optional - makes it look "alive" even without hover) */
-@keyframes pulse-glow {
-    0% { opacity: 0.8; }
-    50% { opacity: 1; text-shadow: 0 0 5px rgba(46, 125, 50, 0.2); }
-    100% { opacity: 0.8; }
-}
-
-.logo {
-    animation: pulse-glow 3s infinite ease-in-out;
-}
