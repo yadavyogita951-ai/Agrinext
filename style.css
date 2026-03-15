@@ -167,3 +167,39 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-size: 2.2rem;
+    cursor: default;
+}
+
+/* The "Organic" side */
+.agri-part {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    color: #2e7d32; /* Earthy Green */
+    letter-spacing: -1px;
+}
+
+/* The "Tech" side */
+.next-part {
+    font-family: 'Orbitron', sans-serif;
+    color: #1b5e20; /* Darker, solid green */
+    text-transform: uppercase;
+    margin-left: 2px;
+    font-size: 1.8rem; /* Slightly smaller to balance the weight */
+    transition: color 0.3s ease;
+}
+
+/* Add a tiny glowing dot to the "Next" part to make it look like a power light */
+.next-part::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #81c784;
+    border-radius: 50%;
+    margin-left: 5px;
+    box-shadow: 0 0 8px #81c784;
+}
