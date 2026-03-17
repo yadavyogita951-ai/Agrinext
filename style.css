@@ -262,3 +262,22 @@ button {
     background: #2e7d32;
     color: white;
 }
+.course-search-container {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+}
+
+#courseSearch {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid #2e7d32;
+    border-radius: 25px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+#courseSearch:focus {
+    box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+}
