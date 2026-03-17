@@ -91,3 +91,21 @@ async function suggestCrop() {
         resultDiv.innerText = "Error loading crop database.";
     }
 }
+function filterCourses() {
+    // Get the search input value
+    const input = document.getElementById('courseSearch').value.toLowerCase();
+    // Get all course cards
+    const cards = document.getElementsByClassName('course-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+        const description = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+
+        // If the title or description contains the search term, show it; otherwise, hide it
+        if (title.includes(input) || description.includes(input)) {
+            cards[i].style.display = "";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
