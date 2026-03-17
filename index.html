@@ -19,19 +19,28 @@
         <span class="agri-part">Agri</span><span class="next-part">next</span>
     </div>
 
-    <nav>
-      
-        <ul class="nav-links">
-       <li> <a href="#courses" class="nav-btn">Courses</a></li>
-       <li> <a href="#tutorials">Tutorials</a></li>
-       <li> <a href="#ai-assistant">AI Assistant</a></li>
-        <li><a href="#schemes" class="nav-btn">Govt Schemes</a></li>
-        </ul>
-       
+    <nav class="nav-btn">   
+       <a href="#courses" class="nav-btn">Courses</a>
+      <a href="#tutorials"  class="nav-btn">Tutorials</a>
+       <a href="#ai-assistant"  class="nav-btn">AI Assistant</a>
+        <a href="#schemes" class="nav-btn">Govt Schemes</a>
     </nav>
-
-    <!-- Login Button -->
-    <button class="login-btn" onclick="loginAction()">Login</button>
+    <div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="toggleModal()">&times;</span>
+        <h2>Farmer Login</h2>
+        <form id="loginForm">
+            <label>Mobile Number or Email</label>
+            <input type="text" id="username" placeholder="Enter your ID" required>
+            
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            
+            <button type="submit" class="auth-btn">Sign In</button>
+            <p>Don't have an account? <a href="#">Register here</a></p>
+        </form>
+    </div>
+</div>
 </header>
 <main>
 
