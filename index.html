@@ -26,7 +26,24 @@
         <a href="#schemes" class="nav-btn">Govt Schemes</a>
     </nav>
     <button class="login-btn" onclick="toggleModal()">LOGIN</button>
-   
+    <div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="toggleModal()">&times;</span>
+        <h2>Farmer Login</h2>
+        <form id="loginForm">
+            <label>Mobile Number or Email</label>
+            <input type="text" id="username" placeholder="Enter your ID" required>
+            
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <div id="loginMessage" style="color:#d32f2f; font-size:0.95rem; min-height:1.2em; text-align:left;"></div>
+            
+            <button type="submit" class="auth-btn">Sign In</button>
+            <p>Don't have an account? <a href="#">Register here</a></p>
+        </form>
+    </div>
+</div>
 </header>
 <main>
 
@@ -170,22 +187,6 @@
 <footer>
     <p>&copy; 2026 Agrinext - Empowering Farmers</p>
 </footer>
-     <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="toggleModal()">&times;</span>
-        <h2>Farmer Login</h2>
-        <form id="loginForm">
-            <label>Mobile Number or Email</label>
-            <input type="text" id="username" placeholder="Enter your ID" required>
-            
-            <label>Password</label>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            
-            <button type="submit" class="auth-btn">Sign In</button>
-            <p>Don't have an account? <a href="#">Register here</a></p>
-        </form>
-    </div>
-</div>
 
 <script>
 function shareProject() {
@@ -219,6 +220,50 @@ function filterCourses() {
         card.style.display = text.includes(input) ? "block" : "none";
     });
 }
+
+function toggleModal() {
+    const modal = document.getElementById("loginModal");
+    if (!modal) return;
+    modal.style.display = modal.style.display === "block" ? "none" : "block";
+    if (modal.style.display === "block") {
+        document.getElementById("loginMessage").textContent = "";
+        document.getElementById("loginForm").reset();
+    }
+}
+
+window.addEventListener("click", function(event) {
+    const modal = document.getElementById("loginModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const message = document.getElementById("loginMessage");
+
+    if (!username || !password) {
+        message.textContent = "Please enter both ID and password.";
+        return;
+    }
+
+    // Example credential check. Replace with real auth call in production.
+    if ((username === "farmer" || username === "farmer@example.com" || username === "9876543210") && password === "agri123") {
+        message.style.color = "#2e7d32";
+        message.textContent = "Login successful! Redirecting...";
+
+        setTimeout(() => {
+            document.getElementById("loginModal").style.display = "none";
+            alert("Welcome back, " + username + "!");
+            // window.location.href = "/dashboard.html"; // optional redirect
+        }, 700);
+    } else {
+        message.style.color = "#d32f2f";
+        message.textContent = "Invalid credentials. Try farmer / agri123.";
+    }
+});
 </script>
 
 </body>
