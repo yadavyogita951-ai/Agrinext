@@ -263,17 +263,17 @@ button {
     color: white;
 }
 .course-search-container {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto 30px auto;
     text-align: center;
 }
 
 #courseSearch {
     width: 100%;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 10px 15px;
+    font-size: 0.9rem;
     border: 2px solid #2e7d32;
-    border-radius: 25px;
+    border-radius: 20px;
     outline: none;
     transition: box-shadow 0.3s ease;
 }
