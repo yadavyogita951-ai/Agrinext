@@ -1,12 +1,10 @@
-// script.js
+
 function suggestCrop() {
     const soil = document.getElementById('soilType').value.toLowerCase();
     const weather = document.getElementById('weather').value.toLowerCase();
     const resultDiv = document.getElementById('predictionResult');
 
     let suggestion = "";
-
-    // Simple logic based on your "Crop Suitability" note
     if (soil.includes("clay") && weather.includes("rainy")) {
         suggestion = "Rice or Sugarcane would be most suitable for these conditions.";
     } else if (soil.includes("loamy") && weather.includes("sunny")) {
@@ -23,7 +21,6 @@ function suggestCrop() {
     resultDiv.style.marginTop = "20px";
     resultDiv.style.borderRadius = "8px";
 }
-// Function to show/hide the login modal
 function toggleModal() {
     const modal = document.getElementById('loginModal');
     if (modal.style.display === "block") {
@@ -32,18 +29,13 @@ function toggleModal() {
         modal.style.display = "block";
     }
 }
-
-// Connect the header button to the function
 document.querySelector('.login-btn').addEventListener('click', toggleModal);
 
-// Handle the login form submission
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop page from refreshing
+    e.preventDefault(); 
     
     const user = document.getElementById('username').value;
     const pass = document.getElementById('password').value;
-
-    // Simple Prototype Logic
     if (user === "admin" && pass === "1234") {
         alert("Welcome back, Farmer!");
         toggleModal();
@@ -54,7 +46,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 });
 async function suggestCrop() {
     const soilInput = document.getElementById('soilType').value.trim();
-    const seasonInput = document.getElementById('weather').value.toLowerCase(); // Using the weather box for season
+    const seasonInput = document.getElementById('weather').value.toLowerCase(); 
     const resultDiv = document.getElementById('predictionResult');
 
     if (!soilInput) {
@@ -71,7 +63,6 @@ async function suggestCrop() {
 
         if (match) {
             let cropSuggestion = "";
-            // Logic to pick the right column based on user input
             if (seasonInput.includes("summer")) cropSuggestion = match.summer;
             else if (seasonInput.includes("monsoon") || seasonInput.includes("rain")) cropSuggestion = match.monsoon;
             else if (seasonInput.includes("winter") || seasonInput.includes("cold")) cropSuggestion = match.winter;
@@ -92,16 +83,12 @@ async function suggestCrop() {
     }
 }
 function filterCourses() {
-    // Get the search input value
     const input = document.getElementById('courseSearch').value.toLowerCase();
-    // Get all course cards
     const cards = document.getElementsByClassName('course-card');
 
     for (let i = 0; i < cards.length; i++) {
         const title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
         const description = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
-
-        // If the title or description contains the search term, show it; otherwise, hide it
         if (title.includes(input) || description.includes(input)) {
             cards[i].style.display = "";
         } else {
