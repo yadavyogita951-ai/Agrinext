@@ -47,7 +47,6 @@
 </header>
 <main>
 
-    <!-- HERO SECTION -->
     <section class="hero-section">
         <h1>Smart Crop Suggestion</h1>
 
@@ -60,7 +59,6 @@
         <div id="predictionResult" class="result-box"></div>
     </section>
 
-    <!-- COURSES -->
     <section id="courses" class="grid-container">
        <div class="card">
     <h3>Agricultural Courses</h3>
@@ -81,7 +79,6 @@
 </div>
     </section>
 
-    <!-- AI ASSISTANT -->
     <section id="ai-assistant" class="ai-section">
         <h2>AI Assistant</h2>
         <p>Ask any farming question for accurate measures.</p>
@@ -89,12 +86,9 @@
         <button>Ask AI</button>
     </section>
 
-    <!-- SEARCH -->
     <div class="course-search-container">
         <input type="text" id="courseSearch" placeholder="Search tutorials..." onkeyup="filterCourses()">
     </div>
-
-    <!-- VIDEO COURSES -->
     <section id="course-videos" class="course-section">
         <h2 class="section-title">Farming Excellence Courses</h2>
 
@@ -135,8 +129,6 @@
 
         </div>
     </section>
-
-    <!-- GOVERNMENT SCHEMES -->
     <section id="schemes" class="schemes-section">
         <h2>Government Agricultural Schemes (2026 Updates)</h2>
 
@@ -178,8 +170,6 @@
             </table>
         </div>
     </section>
-
-    <!-- SHARE BUTTON -->
     <button onclick="shareProject()" class="share-btn">Share via WhatsApp</button>
 
 </main>
@@ -248,8 +238,6 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         message.textContent = "Please enter both ID and password.";
         return;
     }
-
-    // Example credential check. Replace with real auth call in production.
     if ((username === "farmer" || username === "farmer@example.com" || username === "9876543210") && password === "agri123") {
         message.style.color = "#2e7d32";
         message.textContent = "Login successful! Redirecting...";
@@ -257,7 +245,6 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         setTimeout(() => {
             document.getElementById("loginModal").style.display = "none";
             alert("Welcome back, " + username + "!");
-            // window.location.href = "/dashboard.html"; // optional redirect
         }, 700);
     } else {
         message.style.color = "#d32f2f";
