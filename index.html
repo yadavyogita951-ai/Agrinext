@@ -1,169 +1,200 @@
-function setLoginState(isLoggedIn, username) {
-    const btn = document.querySelector('.login-btn');
-    if (isLoggedIn) {
-        btn.innerText = `Logout (${username})`;
-        btn.onclick = () => {
-            localStorage.removeItem('farmerAccount');
-            btn.innerText = 'LOGIN';
-            btn.onclick = toggleModal;
-            alert('Logged out successfully.');
-        };
-    } else {
-        btn.innerText = 'Farmer Login';
-        btn.onclick = toggleModal;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinext - Modern Farming Portal</title>
 
-function getStoredUsers() {
-    try {
-        return JSON.parse(localStorage.getItem('registeredFarmers') || '[]');
-    } catch {
-        return [];
-    }
-}
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-function saveUser(user) {
-    const users = getStoredUsers();
-    users.push(user);
-    localStorage.setItem('registeredFarmers', JSON.stringify(users));
-}
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
 
-function findUser(username) {
-    return getStoredUsers().find(u => u.username.toLowerCase() === username.toLowerCase());
-}
+<body>
 
-function showRegister() {
-    document.getElementById('loginTitle').innerText = 'Farmer Registration';
-    document.getElementById('submitBtn').innerText = 'Register';
-    document.getElementById('registerLink').classList.add('hidden');
-    document.getElementById('existingLink').classList.remove('hidden');
-    document.getElementById('passwordConfirmRow').classList.remove('hidden');
- }
+<header>
+    
+    <div class="logo-container">
+        <span class="agri-part">Agri</span><span class="next-part">next</span>
+    </div>
 
-function showLogin() {
-    document.getElementById('loginTitle').innerText = 'Farmer Login (Mobile Number or Email)';
-    document.getElementById('submitBtn').innerText = 'Sign In';
-    document.getElementById('registerLink').classList.remove('hidden');
-    document.getElementById('existingLink').classList.add('hidden');
-    document.getElementById('passwordConfirmRow').classList.add('hidden');
-}
+    <nav>    
+       <a href="#courses" class="nav-btn">Courses</a>
+      <a href="#tutorials"  class="nav-btn">Tutorials</a>
+       <a href="#ai-assistant"  class="nav-btn">AI Assistant</a>
+        <a href="#schemes" class="nav-btn">Govt Schemes</a>
+    </nav>
+    <button id="loginBtn" class="login-btn">Farmer Login</button>
+    <div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="toggleModal()">&times;</span>
+        <h2 id="loginTitle">Farmer Login</h2>
+        <form id="loginForm">
+            <label>Mobile Number or Email</label>
+            <input type="text" id="username" placeholder="Enter your ID" required>
+            
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
 
-function toggleModal() {
-    const modal = document.getElementById('loginModal');
-    if (!modal) return;
-    const isOpen = modal.style.display === 'block';
-    modal.style.display = isOpen ? 'none' : 'block';
-    if (!isOpen) {
-        document.getElementById('loginMessage').innerText = '';
-        document.getElementById('loginForm').reset();
-        showLogin();
-    }
-}
+            <div id="passwordConfirmRow" class="hidden">
+                <label>Confirm Password</label>
+                <input type="password" id="passwordConfirm" placeholder="Confirm Password">
+            </div>
 
-// Crop suggestion
-async function suggestCrop() {
-    const soilInput = document.getElementById('soilType').value.trim();
-    const seasonInput = document.getElementById('weather').value.toLowerCase();
-    const resultDiv = document.getElementById('predictionResult');
+            <div id="loginMessage" style="color:#d32f2f; font-size:0.95rem; min-height:1.2em; text-align:left;"></div>
+            
+            <button type="submit" id="submitBtn" class="auth-btn">Sign In</button>
+            <p id="registerLink">Don't have an account? <a href="#">Register here</a></p>
+            <p id="existingLink" class="hidden">Already have an account? <a href="#">Sign in</a></p>
+        </form>
+    </div>
+</div>
+</header>
+<main>
 
-    if (!soilInput) {
-        resultDiv.innerHTML = '<p style="color: red;">Please enter a soil type.</p>';
-        return;
-    }
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1>Smart Crop Suggestion</h1>
 
-    try {
-        const response = await fetch('data.json');
-        const cropData = await response.json();
-        const match = cropData.find(item => item.soil.toLowerCase() === soilInput.toLowerCase());
+        <div class="prediction-form">
+            <input type="text" id="soilType" placeholder="Enter Soil Type (e.g., Clay, Loamy)">
+            <input type="text" id="weather" placeholder="Enter Weather Condition">
+            <button onclick="suggestCrop()">Get Suggestion</button>
+        </div>
 
-        if (!match) {
-            resultDiv.innerHTML = '<p style="color: red;">Soil type not found. Try Clay/Black/Red.</p>';
-            return;
-        }
+        <div id="predictionResult" class="result-box"></div>
+    </section>
 
-        let cropSuggestion = '';
-        if (seasonInput.includes('summer')) cropSuggestion = match.summer;
-        else if (seasonInput.includes('monsoon') || seasonInput.includes('rain')) cropSuggestion = match.monsoon;
-        else if (seasonInput.includes('winter') || seasonInput.includes('cold')) cropSuggestion = match.winter;
-        else cropSuggestion = `Summer: ${match.summer}, Monsoon: ${match.monsoon}, Winter: ${match.winter}`;
+    <!-- COURSES -->
+    <section id="courses" class="grid-container">
+       <div class="card">
+    <h3>Agricultural Courses</h3>
+    <ul>
+        <li><a href="https://www.youtube.com/watch?v=mkEsLdNKlPM" target="_blank">Organic Farming</a></li>
+        <li><a href="https://www.youtube.com/watch?v=lRyXlvIJFWI" target="_blank">Hydroponics</a></li>
+        <li><a href="https://www.youtube.com/playlist?list=PLiVTk8kpK3eHMtN9hcssWwn8JjEylY5fk" target="_blank">Integrated Pest Management</a></li>
+    </ul>
+</div>
 
-        resultDiv.innerHTML = `<div style="background: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; color: #1b5e20;"><h3 style="margin-top:0;">Recommendations for ${match.soil} Soil:</h3><p><strong>Suggested:</strong> ${cropSuggestion}</p><p><strong>Condition:</strong> ${match.weather}</p></div>`;
-    } catch (err) {
-        resultDiv.innerHTML = '<p style="color: red;">Error loading crop data.</p>';
-    }
-}
+<div class="card">
+    <h3>Video Tutorials</h3>
+    <ul>
+        <li><a href="https://www.youtube.com/watch?v=aAfgfgPlUmE" target="_blank">How to test soil</a></li>
+        <li><a href="https://www.youtube.com/watch?v=-dURlDRlQ8I" target="_blank">Drip Irrigation Installation</a></li>
+        <li><a href="https://www.youtube.com/watch?v=WhOrIUlrnPo" target="_blank">Reducing Fertilizer Costs</a></li>
+    </ul>
+</div>
+    </section>
 
-function filterCourses() {
-    const input = document.getElementById('courseSearch').value.toLowerCase();
-    const cards = document.getElementsByClassName('course-card');
-    for (let i = 0; i < cards.length; i++) {
-        const title = cards[i].querySelector('h3').innerText.toLowerCase();
-        const description = cards[i].querySelector('p').innerText.toLowerCase();
-        cards[i].style.display = (title.includes(input) || description.includes(input)) ? '' : 'none';
-    }
-}
+    <!-- AI ASSISTANT -->
+    <section id="ai-assistant" class="ai-section">
+        <h2>AI Assistant</h2>
+        <p>Ask any farming question for accurate measures.</p>
+        <textarea placeholder="How can I treat leaf spot?"></textarea>
+        <button>Ask AI</button>
+    </section>
 
-// Auth form support
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('loginBtn').addEventListener('click', toggleModal);
+    <!-- SEARCH -->
+    <div class="course-search-container">
+        <input type="text" id="courseSearch" placeholder="Search tutorials..." onkeyup="filterCourses()">
+    </div>
 
-    document.getElementById('registerLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        showRegister();
-    });
+    <!-- VIDEO COURSES -->
+    <section id="course-videos" class="course-section">
+        <h2 class="section-title">Farming Excellence Courses</h2>
 
-    document.getElementById('existingLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        showLogin();
-    });
+        <div class="course-grid">
 
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const messageBox = document.getElementById('loginMessage');
+            <div class="course-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/mkEsLdNKlPM" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="course-info">
+                    <h3>Organic Techniques</h3>
+                    <p>30 essential methods for small-scale sustainable farming.</p>
+                    <a href="https://www.youtube.com/watch?v=mkEsLdNKlPM" target="_blank">View on YouTube</a>
+                </div>
+            </div>
 
-        if (!username || !password) {
-            messageBox.innerText = 'Enter both ID and Password.';
-            messageBox.style.color = '#d32f2f';
-            return;
-        }
+            <div class="course-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/aAfgfgPlUmE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="course-info">
+                    <h3>Soil Management</h3>
+                    <p>Master the art of soil testing and health restoration.</p>
+                    <a href="https://www.youtube.com/watch?v=aAfgfgPlUmE" target="_blank">View on YouTube</a>
+                </div>
+            </div>
 
-        if (document.getElementById('submitBtn').innerText === 'Register') {
-            const confirmPassword = document.getElementById('passwordConfirm').value.trim();
-            if (password !== confirmPassword) {
-                messageBox.innerText = 'Passwords do not match.';
-                messageBox.style.color = '#d32f2f';
-                return;
-            }
-            if (findUser(username)) {
-                messageBox.innerText = 'Account already exists. Please sign in.';
-                messageBox.style.color = '#d32f2f';
-                return;
-            }
-            saveUser({ username, password });
-            messageBox.innerText = 'Registered successfully. Please sign in.';
-            messageBox.style.color = '#2e7d32';
-            showLogin();
-            return;
-        }
+            <div class="course-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/tp4jsg_Ktj4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="course-info">
+                    <h3>Sustainable Protection</h3>
+                    <p>5 steps to Integrated Pest Management (IPM).</p>
+                    <a href="https://www.youtube.com/watch?v=tp4jsg_Ktj4" target="_blank">View on YouTube</a>
+                </div>
+            </div>
 
-        const user = findUser(username);
-        if (user && user.password === password) {
-            messageBox.innerText = 'Login successful!';
-            messageBox.style.color = '#2e7d32';
-            setLoginState(true, username);
-            setTimeout(toggleModal, 650);
-        } else {
-            messageBox.innerText = 'Invalid ID or password.';
-            messageBox.style.color = '#d32f2f';
-        }
-    });
+        </div>
+    </section>
 
-    window.addEventListener('click', (event) => {
-        const modal = document.getElementById('loginModal');
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-});
+    <!-- GOVERNMENT SCHEMES -->
+    <section id="schemes" class="schemes-section">
+        <h2>Government Agricultural Schemes (2026 Updates)</h2>
+
+        <div class="table-wrapper">
+            <table class="schemes-table">
+                <thead>
+                    <tr>
+                        <th>Scheme Name</th>
+                        <th>Benefit</th>
+                        <th>Highlights</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>PM-Kisan</td>
+                        <td>₹6,000/year</td>
+                        <td>DBT in 3 installments; e-KYC required</td>
+                    </tr>
+
+                    <tr>
+                        <td>PMFBY</td>
+                        <td>Crop Insurance</td>
+                        <td>Covers disasters; low premium</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soil Health Card</td>
+                        <td>Soil Testing</td>
+                        <td>12-parameter soil report</td>
+                    </tr>
+
+                    <tr>
+                        <td>KCC</td>
+                        <td>Loans</td>
+                        <td>6-year validity, includes tech support</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SHARE BUTTON -->
+    <button onclick="shareProject()" class="share-btn">Share via WhatsApp</button>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Agrinext - Empowering Farmers</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
