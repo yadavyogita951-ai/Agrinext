@@ -283,9 +283,78 @@ button {
     color: #333; /* Keeps text dark like your screenshot */
     transition: color 0.3s ease;
 }
-
-/* Change color when the user hovers or taps */
-.card ul li a:hover {
-    color: #2e7d32; /* Turns Agrinext green on hover */
-    font-weight: bold;
+/* Navigation Link Buttons */
+.nav-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft white border */
+    border-radius: 20px; /* Capsule shape */
+    transition: all 0.3s ease;
+    display: inline-block;
 }
+
+/* Hover effect: Fills in the button */
+.nav-btn:hover {
+    background-color: white;
+    color: #2e7d32; /* Agrinext Green */
+    border-color: white;
+    transform: translateY(-2px); /* Slight lift */
+}
+
+/* The Login Button (Making it stand out more) */
+.login-btn {
+    background-color: #81c784; /* Lighter green accent */
+    color: #1b5e20;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+/* Navigation Link Buttons */
+.nav-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft white border */
+    border-radius: 20px; /* Capsule shape */
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover effect: Fills in the button */
+.nav-btn:hover {
+    background-color: white;
+    color: #2e7d32; /* Agrinext Green */
+    border-color: white;
+    transform: translateY(-2px); /* Slight lift */
+}
+
+/* The Login Button (Making it stand out more) */
+.login-btn {
+    background-color: #81c784; /* Lighter green accent */
+    color: #1b5e20;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
