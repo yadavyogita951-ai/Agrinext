@@ -277,3 +277,22 @@ button {
     outline: none;
     transition: box-shadow 0.3s ease;
 }
+/* Style the links inside your lists */
+.card ul li a {
+    text-decoration: none; /* Removes the underline */
+    color: #333; /* Keeps text dark like your screenshot */
+    transition: color 0.3s ease;
+}
+
+/* Change color when the user hovers or taps */
+.card ul li a:hover {
+    color: #2e7d32; /* Turns Agrinext green on hover */
+    font-weight: bold;
+}
+
+/* Optional: Add a small play icon before the text */
+.card ul li::before {
+    content: "▶ ";
+    color: #2e7d32;
+    font-size: 0.8rem;
+}
