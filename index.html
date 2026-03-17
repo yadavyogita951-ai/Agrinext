@@ -4,168 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrinext - Modern Farming Portal</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <div class="logo-container">
-    <span class="agri-part">Agri</span><span class="next-part">next</span>
-</div>
-        
-        <nav>
-            <a href="#courses">Courses</a>
-            <a href="#tutorials">Tutorials</a>
-            <a href="#ai-assistant">AI Assistant</a>
-            <a href="#schemes">Govt Schemes</a>
-        </nav>
-        <button class="login-btn">Login</button>
-    </header>
 
-    <main>
-        <section class="hero-section">
-            <h1>Smart Crop Suggestion</h1>
-            <div class="prediction-form">
-                <input type="text" id="soilType" placeholder="Enter Soil Type (e.g., Clay, Loamy)">
-                <input type="text" id="weather" placeholder="Enter Weather Condition">
-                <button onclick="suggestCrop()">Get Suggestion</button>
-            </div>
-            <div id="predictionResult" class="result-box"></div>
-        </section>
-
-        <section id="courses" class="grid-container">
-            <div class="card">
-                <h2>Agricultural Courses</h2>
-                <ul>
-                    <li>Organic Farming</li>
-                    <li>Hydroponics</li>
-                    <li>Integrated Pest Management</li>
-                </ul>
-            </div>
-            <div class="card" id="tutorials">
-                <h2>Video Tutorials</h2>
-                <ul>
-                    <li>How to test soil</li>
-                    <li>Drip Irrigation Installation</li>
-                    <li>Reducing Fertilizer Costs</li>
-                </ul>
-            </div>
-        </section>
-<section id="ai-assistant" class="ai-section">
-            <h2>AI Assistant</h2>
-            <p>Ask any farming question for accurate measures.</p>
-            <textarea placeholder="How can I treat leaf spot?"></textarea>
-            <button>Ask AI</button>
-        </section>
-
-        <div class="course-search-container">
-    <input type="text" id="courseSearch" placeholder="Search tutorials (e.g. soil, pest, organic)..." onkeyup="filterCourses()">
-</div>
-        
-        <section id="courses" class="course-section">
-    <h2 class="section-title">Farming Excellence Courses</h2>
-    <div class="course-grid">
-        
-        <div class="course-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/mkEsLdNKlPM" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="course-info">
-                <h3>Organic Techniques</h3>
-                <p>30 essential methods for small-scale sustainable farming.</p>
-                <a href="https://www.youtube.com/watch?v=mkEsLdNKlPM" target="_blank" class="course-link">View on YouTube</a>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/aAfgfgPlUmE" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="course-info">
-                <h3>Soil Management</h3>
-                <p>Master the art of soil testing and health restoration.</p>
-                <a href="https://www.youtube.com/watch?v=aAfgfgPlUmE" target="_blank" class="course-link">View on YouTube</a>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/tp4jsg_Ktj4" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="course-info">
-                <h3>Sustainable Protection</h3>
-                <p>5 steps to Integrated Pest Management (IPM).</p>
-                <a href="https://www.youtube.com/watch?v=tp4jsg_Ktj4" target="_blank" class="course-link">View on YouTube</a>
-            </div>
-        </div>
-
+<header>
+    <div class="logo-container">
+        <span class="agri-part">Agri</span><span class="next-part">next</span>
     </div>
-</section>
-<section id="schemes" class="schemes-section">
-    <h2>Government Agricultural Schemes (2026 Updates)</h2>
-    <div class="table-wrapper">
-        <table class="schemes-table">
-            <thead>
-                <tr>
-                    <th>Scheme Name</th>
-                    <th>Benefit / Assistance</th>
-                    <th>Key Highlights (2026)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>PM-Kisan</strong></td>
-                    <td>₹6,000 per year</td>
-                    <td>Direct Benefit Transfer (DBT) in 3 installments; e-KYC mandatory.</td>
-                </tr>
-                <tr>
-                    <td><strong>PM Fasal Bima (PMFBY)</strong></td>
-                    <td>Crop Insurance</td>
-                    <td>Covers natural disasters & wild animal attacks; Low premiums (1.5% - 5%).</td>
-                </tr>
-                <tr>
-                    <td><strong>Soil Health Card</strong></td>
-                    <td>Soil Testing</td>
-                    <td>Provides 12-parameter report with crop-specific fertilizer advice.</td>
-                </tr>
-                <tr>
-                    <td><strong>Kisan Credit Card (KCC)</strong></td>
-                    <td>Low-interest Loans</td>
-                    <td>New 6-year validity; covers tech costs like drones & soil testing.</td>
-                </tr>
-            </tbody>
-        </table>
+
+    <nav>
+        <a href="#courses">Courses</a>
+        <a href="#tutorials">Tutorials</a>
+        <a href="#ai-assistant">AI Assistant</a>
+        <a href="#schemes">Govt Schemes</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1>Smart Crop Suggestion</h1>
+
+        <div class="prediction-form">
+            <input type="text" id="soilType" placeholder="Enter Soil Type (e.g., Clay, Loamy)">
+            <input type="text" id="weather" placeholder="Enter Weather Condition">
+            <button onclick="suggestCrop()">Get Suggestion</button>
+        </div>
+
+        <div id="predictionResult" class="result-box"></div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="grid-container">
+        <div class="card">
+            <h2>Agricultural Courses</h2>
+            <ul>
+                <li>Organic Farming</li>
+                <li>Hydroponics</li>
+                <li>Integrated Pest Management</li>
+            </ul>
+        </div>
+
+        <div class="card" id="tutorials">
+            <h2>Video Tutorials</h2>
+            <ul>
+                <li>How to test soil</li>
+                <li>Drip Irrigation Installation</li>
+                <li>Reducing Fertilizer Costs</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- AI ASSISTANT -->
+    <section id="ai-assistant" class="ai-section">
+        <h2>AI Assistant</h2>
+        <p>Ask any farming question for accurate measures.</p>
+        <textarea placeholder="How can I treat leaf spot?"></textarea>
+        <button>Ask AI</button>
+    </section>
+
+    <!-- SEARCH -->
+    <div class="course-search-container">
+        <input type="text" id="courseSearch" placeholder="Search tutorials..." onkeyup="filterCourses()">
     </div>
-</section>
-<button onclick="shareProject()" class="share-btn">Share via WhatsApp</button>
+
+    <!-- VIDEO COURSES -->
+    <section id="course-videos" class="course-section">
+        <h2 class="section-title">Farming Excellence Courses</h2>
+
+        <div class="course-grid">
+
+            <div class="course-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/mkEsLdNKlPM" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="course-info">
+                    <h3>Organic Techniques</h3>
+                    <p>30 essential methods for small-scale sustainable farming.</p>
+                    <a href="https://www.youtube.com/watch?v=mkEsLdNKlPM" target="_blank">View on YouTube</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/aAfgfgPlUmE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="course-info">
+                    <h3>Soil Management</h3>
+                    <p>Master the art of soil testing and health restoration.</p>
+                    <a href="https://www.youtube.com/watch?v=aAfgfgPlUmE" target="_blank">View on YouTube</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/tp4jsg_Ktj4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="course-info">
+                    <h3>Sustainable Protection</h3>
+                    <p>5 steps to Integrated Pest Management (IPM).</p>
+                    <a href="https://www.youtube.com/watch?v=tp4jsg_Ktj4" target="_blank">View on YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GOVERNMENT SCHEMES -->
+    <section id="schemes" class="schemes-section">
+        <h2>Government Agricultural Schemes (2026 Updates)</h2>
+
+        <div class="table-wrapper">
+            <table class="schemes-table">
+                <thead>
+                    <tr>
+                        <th>Scheme Name</th>
+                        <th>Benefit</th>
+                        <th>Highlights</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>PM-Kisan</td>
+                        <td>₹6,000/year</td>
+                        <td>DBT in 3 installments; e-KYC required</td>
+                    </tr>
+
+                    <tr>
+                        <td>PMFBY</td>
+                        <td>Crop Insurance</td>
+                        <td>Covers disasters; low premium</td>
+                    </tr>
+
+                    <tr>
+                        <td>Soil Health Card</td>
+                        <td>Soil Testing</td>
+                        <td>12-parameter soil report</td>
+                    </tr>
+
+                    <tr>
+                        <td>KCC</td>
+                        <td>Loans</td>
+                        <td>6-year validity, includes tech support</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SHARE BUTTON -->
+    <button onclick="shareProject()" class="share-btn">Share via WhatsApp</button>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Agrinext - Empowering Farmers</p>
+</footer>
 
 <script>
 function shareProject() {
-    const url = window.location.href; // Grabs your live website link
-    const text = "Check out Agrinext - The AI assistant for farmers! " + url;
+    const url = window.location.href;
+    const text = "Check out Agrinext - AI assistant for farmers! " + url;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
 }
-</script>
-    </main>
 
-    <footer> <p>&copy; 2026 Agrinext - Empowering Farmers</p>
-    </footer>
-    <div class="modal-content">
-        <span class="close-btn" onclick="toggleModal()">&times;</span>
-        <h2>Farmer Login</h2>
-        <form id="loginForm">
-            <label>Mobile Number or Email</label>
-            <input type="text" id="username" placeholder="Enter your ID" required>
-            
-            <label>Password</label>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            
-            <button type="submit" class="auth-btn">Sign In</button>
-            <p>Don't have an account? <a href="#">Register here</a></p>
-        </form>
-    </div>
-</div>
-    <script src="script.js"></script>
+function suggestCrop() {
+    const soil = document.getElementById("soilType").value.toLowerCase();
+    const weather = document.getElementById("weather").value.toLowerCase();
+    let result = "";
+
+    if (soil.includes("clay") && weather.includes("rain")) {
+        result = "Suggested Crop: Rice 🌾";
+    } else if (soil.includes("loamy") && weather.includes("sunny")) {
+        result = "Suggested Crop: Wheat 🌱";
+    } else {
+        result = "Try Maize or Pulses 🌽";
+    }
+
+    document.getElementById("predictionResult").innerText = result;
+}
+
+function filterCourses() {
+    const input = document.getElementById("courseSearch").value.toLowerCase();
+    const cards = document.querySelectorAll(".course-card");
+
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
+    });
+}
+</script>
+
 </body>
 </html>
