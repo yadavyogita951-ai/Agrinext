@@ -277,6 +277,40 @@ button {
     outline: none;
     transition: box-shadow 0.3s ease;
 }
+footer{
+text-align:center;
+padding:20px;
+background:#f1f5f9;
+margin-top:40px;
+}
+
+.social-footer{
+margin-bottom:10px;
+}
+
+.social-footer a{
+margin:0 12px;
+font-size:22px;
+color:#16a34a;
+transition:0.3s;
+}
+
+.social-footer a:hover{
+transform:scale(1.2);
+}
+
+/* Individual colors on hover */
+.social-footer a:hover .fa-facebook-f{
+color:#1877f2;
+}
+
+.social-footer a:hover .fa-instagram{
+color:#e1306c;
+}
+
+.social-footer a:hover .fa-x-twitter{
+color:#000;
+}
 
 #courseSearch:focus {
     box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
