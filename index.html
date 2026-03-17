@@ -1,257 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinext - Modern Farming Portal</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-
-<header>
-    
-    <div class="logo-container">
-        <span class="agri-part">Agri</span><span class="next-part">next</span>
-    </div>
-
-    <nav>    
-       <a href="#courses" class="nav-btn">Courses</a>
-      <a href="#tutorials"  class="nav-btn">Tutorials</a>
-       <a href="#ai-assistant"  class="nav-btn">AI Assistant</a>
-        <a href="#schemes" class="nav-btn">Govt Schemes</a>
-    </nav>
-    <button class="login-btn" onclick="toggleModal()">LOGIN</button>
-    <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="toggleModal()">&times;</span>
-        <h2>Farmer Login</h2>
-        <form id="loginForm">
-            <label>Mobile Number or Email</label>
-            <input type="text" id="username" placeholder="Enter your ID" required>
-            
-            <label>Password</label>
-            <input type="password" id="password" placeholder="Enter Password" required>
-
-            <div id="loginMessage" style="color:#d32f2f; font-size:0.95rem; min-height:1.2em; text-align:left;"></div>
-            
-            <button type="submit" class="auth-btn">Sign In</button>
-            <p>Don't have an account? <a href="#">Register here</a></p>
-        </form>
-    </div>
-</div>
-</header>
-<main>
-
-    <section class="hero-section">
-        <h1>Smart Crop Suggestion</h1>
-
-        <div class="prediction-form">
-            <input type="text" id="soilType" placeholder="Enter Soil Type (e.g., Clay, Loamy)">
-            <input type="text" id="weather" placeholder="Enter Weather Condition">
-            <button onclick="suggestCrop()">Get Suggestion</button>
-        </div>
-
-        <div id="predictionResult" class="result-box"></div>
-    </section>
-
-    <section id="courses" class="grid-container">
-       <div class="card">
-    <h3>Agricultural Courses</h3>
-    <ul>
-        <li><a href="https://www.youtube.com/watch?v=mkEsLdNKlPM" target="_blank">Organic Farming</a></li>
-        <li><a href="https://www.youtube.com/watch?v=lRyXlvIJFWI" target="_blank">Hydroponics</a></li>
-        <li><a href="https://www.youtube.com/playlist?list=PLiVTk8kpK3eHMtN9hcssWwn8JjEylY5fk" target="_blank">Integrated Pest Management</a></li>
-    </ul>
-</div>
-
-<div class="card">
-    <h3>Video Tutorials</h3>
-    <ul>
-        <li><a href="https://www.youtube.com/watch?v=aAfgfgPlUmE" target="_blank">How to test soil</a></li>
-        <li><a href="https://www.youtube.com/watch?v=-dURlDRlQ8I" target="_blank">Drip Irrigation Installation</a></li>
-        <li><a href="https://www.youtube.com/watch?v=WhOrIUlrnPo" target="_blank">Reducing Fertilizer Costs</a></li>
-    </ul>
-</div>
-    </section>
-
-    <section id="ai-assistant" class="ai-section">
-        <h2>AI Assistant</h2>
-        <p>Ask any farming question for accurate measures.</p>
-        <textarea placeholder="How can I treat leaf spot?"></textarea>
-        <button>Ask AI</button>
-    </section>
-
-    <div class="course-search-container">
-        <input type="text" id="courseSearch" placeholder="Search tutorials..." onkeyup="filterCourses()">
-    </div>
-    <section id="course-videos" class="course-section">
-        <h2 class="section-title">Farming Excellence Courses</h2>
-
-        <div class="course-grid">
-
-            <div class="course-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/mkEsLdNKlPM" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="course-info">
-                    <h3>Organic Techniques</h3>
-                    <p>30 essential methods for small-scale sustainable farming.</p>
-                    <a href="https://www.youtube.com/watch?v=mkEsLdNKlPM" target="_blank">View on YouTube</a>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/aAfgfgPlUmE" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="course-info">
-                    <h3>Soil Management</h3>
-                    <p>Master the art of soil testing and health restoration.</p>
-                    <a href="https://www.youtube.com/watch?v=aAfgfgPlUmE" target="_blank">View on YouTube</a>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/tp4jsg_Ktj4" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="course-info">
-                    <h3>Sustainable Protection</h3>
-                    <p>5 steps to Integrated Pest Management (IPM).</p>
-                    <a href="https://www.youtube.com/watch?v=tp4jsg_Ktj4" target="_blank">View on YouTube</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <section id="schemes" class="schemes-section">
-        <h2>Government Agricultural Schemes (2026 Updates)</h2>
-
-        <div class="table-wrapper">
-            <table class="schemes-table">
-                <thead>
-                    <tr>
-                        <th>Scheme Name</th>
-                        <th>Benefit</th>
-                        <th>Highlights</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>PM-Kisan</td>
-                        <td>₹6,000/year</td>
-                        <td>DBT in 3 installments; e-KYC required</td>
-                    </tr>
-
-                    <tr>
-                        <td>PMFBY</td>
-                        <td>Crop Insurance</td>
-                        <td>Covers disasters; low premium</td>
-                    </tr>
-
-                    <tr>
-                        <td>Soil Health Card</td>
-                        <td>Soil Testing</td>
-                        <td>12-parameter soil report</td>
-                    </tr>
-
-                    <tr>
-                        <td>KCC</td>
-                        <td>Loans</td>
-                        <td>6-year validity, includes tech support</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    <button onclick="shareProject()" class="share-btn">Share via WhatsApp</button>
-
-</main>
-
-<footer>
-    <p>&copy; 2026 Agrinext - Empowering Farmers</p>
-</footer>
-
-<script>
-function shareProject() {
-    const url = window.location.href;
-    const text = "Check out Agrinext - AI assistant for farmers! " + url;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-}
-
-function suggestCrop() {
-    const soil = document.getElementById("soilType").value.toLowerCase();
-    const weather = document.getElementById("weather").value.toLowerCase();
-    let result = "";
-
-    if (soil.includes("clay") && weather.includes("rain")) {
-        result = "Suggested Crop: Rice 🌾";
-    } else if (soil.includes("loamy") && weather.includes("sunny")) {
-        result = "Suggested Crop: Wheat 🌱";
+function setLoginState(isLoggedIn, username) {
+    const btn = document.querySelector('.login-btn');
+    if (isLoggedIn) {
+        btn.innerText = `Logout (${username})`;
+        btn.onclick = () => {
+            localStorage.removeItem('farmerAccount');
+            btn.innerText = 'LOGIN';
+            btn.onclick = toggleModal;
+            alert('Logged out successfully.');
+        };
     } else {
-        result = "Try Maize or Pulses 🌽";
+        btn.innerText = 'Farmer Login';
+        btn.onclick = toggleModal;
     }
-
-    document.getElementById("predictionResult").innerText = result;
 }
 
-function filterCourses() {
-    const input = document.getElementById("courseSearch").value.toLowerCase();
-    const cards = document.querySelectorAll(".course-card");
+function getStoredUsers() {
+    try {
+        return JSON.parse(localStorage.getItem('registeredFarmers') || '[]');
+    } catch {
+        return [];
+    }
+}
 
-    cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? "block" : "none";
-    });
+function saveUser(user) {
+    const users = getStoredUsers();
+    users.push(user);
+    localStorage.setItem('registeredFarmers', JSON.stringify(users));
+}
+
+function findUser(username) {
+    return getStoredUsers().find(u => u.username.toLowerCase() === username.toLowerCase());
+}
+
+function showRegister() {
+    document.getElementById('loginTitle').innerText = 'Farmer Registration';
+    document.getElementById('submitBtn').innerText = 'Register';
+    document.getElementById('registerLink').classList.add('hidden');
+    document.getElementById('existingLink').classList.remove('hidden');
+    document.getElementById('passwordConfirmRow').classList.remove('hidden');
+ }
+
+function showLogin() {
+    document.getElementById('loginTitle').innerText = 'Farmer Login (Mobile Number or Email)';
+    document.getElementById('submitBtn').innerText = 'Sign In';
+    document.getElementById('registerLink').classList.remove('hidden');
+    document.getElementById('existingLink').classList.add('hidden');
+    document.getElementById('passwordConfirmRow').classList.add('hidden');
 }
 
 function toggleModal() {
-    const modal = document.getElementById("loginModal");
+    const modal = document.getElementById('loginModal');
     if (!modal) return;
-    modal.style.display = modal.style.display === "block" ? "none" : "block";
-    if (modal.style.display === "block") {
-        document.getElementById("loginMessage").textContent = "";
-        document.getElementById("loginForm").reset();
+    const isOpen = modal.style.display === 'block';
+    modal.style.display = isOpen ? 'none' : 'block';
+    if (!isOpen) {
+        document.getElementById('loginMessage').innerText = '';
+        document.getElementById('loginForm').reset();
+        showLogin();
     }
 }
 
-window.addEventListener("click", function(event) {
-    const modal = document.getElementById("loginModal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-});
+// Crop suggestion
+async function suggestCrop() {
+    const soilInput = document.getElementById('soilType').value.trim();
+    const seasonInput = document.getElementById('weather').value.toLowerCase();
+    const resultDiv = document.getElementById('predictionResult');
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const message = document.getElementById("loginMessage");
-
-    if (!username || !password) {
-        message.textContent = "Please enter both ID and password.";
+    if (!soilInput) {
+        resultDiv.innerHTML = '<p style="color: red;">Please enter a soil type.</p>';
         return;
     }
-    if ((username === "farmer" || username === "farmer@example.com" || username === "9876543210") && password === "agri123") {
-        message.style.color = "#2e7d32";
-        message.textContent = "Login successful! Redirecting...";
 
-        setTimeout(() => {
-            document.getElementById("loginModal").style.display = "none";
-            alert("Welcome back, " + username + "!");
-        }, 700);
-    } else {
-        message.style.color = "#d32f2f";
-        message.textContent = "Invalid credentials. Try farmer / agri123.";
+    try {
+        const response = await fetch('data.json');
+        const cropData = await response.json();
+        const match = cropData.find(item => item.soil.toLowerCase() === soilInput.toLowerCase());
+
+        if (!match) {
+            resultDiv.innerHTML = '<p style="color: red;">Soil type not found. Try Clay/Black/Red.</p>';
+            return;
+        }
+
+        let cropSuggestion = '';
+        if (seasonInput.includes('summer')) cropSuggestion = match.summer;
+        else if (seasonInput.includes('monsoon') || seasonInput.includes('rain')) cropSuggestion = match.monsoon;
+        else if (seasonInput.includes('winter') || seasonInput.includes('cold')) cropSuggestion = match.winter;
+        else cropSuggestion = `Summer: ${match.summer}, Monsoon: ${match.monsoon}, Winter: ${match.winter}`;
+
+        resultDiv.innerHTML = `<div style="background: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; color: #1b5e20;"><h3 style="margin-top:0;">Recommendations for ${match.soil} Soil:</h3><p><strong>Suggested:</strong> ${cropSuggestion}</p><p><strong>Condition:</strong> ${match.weather}</p></div>`;
+    } catch (err) {
+        resultDiv.innerHTML = '<p style="color: red;">Error loading crop data.</p>';
     }
-});
-</script>
+}
 
-</body>
-</html>
+function filterCourses() {
+    const input = document.getElementById('courseSearch').value.toLowerCase();
+    const cards = document.getElementsByClassName('course-card');
+    for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].querySelector('h3').innerText.toLowerCase();
+        const description = cards[i].querySelector('p').innerText.toLowerCase();
+        cards[i].style.display = (title.includes(input) || description.includes(input)) ? '' : 'none';
+    }
+}
+
+// Auth form support
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('loginBtn').addEventListener('click', toggleModal);
+
+    document.getElementById('registerLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        showRegister();
+    });
+
+    document.getElementById('existingLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        showLogin();
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const messageBox = document.getElementById('loginMessage');
+
+        if (!username || !password) {
+            messageBox.innerText = 'Enter both ID and Password.';
+            messageBox.style.color = '#d32f2f';
+            return;
+        }
+
+        if (document.getElementById('submitBtn').innerText === 'Register') {
+            const confirmPassword = document.getElementById('passwordConfirm').value.trim();
+            if (password !== confirmPassword) {
+                messageBox.innerText = 'Passwords do not match.';
+                messageBox.style.color = '#d32f2f';
+                return;
+            }
+            if (findUser(username)) {
+                messageBox.innerText = 'Account already exists. Please sign in.';
+                messageBox.style.color = '#d32f2f';
+                return;
+            }
+            saveUser({ username, password });
+            messageBox.innerText = 'Registered successfully. Please sign in.';
+            messageBox.style.color = '#2e7d32';
+            showLogin();
+            return;
+        }
+
+        const user = findUser(username);
+        if (user && user.password === password) {
+            messageBox.innerText = 'Login successful!';
+            messageBox.style.color = '#2e7d32';
+            setLoginState(true, username);
+            setTimeout(toggleModal, 650);
+        } else {
+            messageBox.innerText = 'Invalid ID or password.';
+            messageBox.style.color = '#d32f2f';
+        }
+    });
+
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('loginModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
