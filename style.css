@@ -289,10 +289,3 @@ button {
     color: #2e7d32; /* Turns Agrinext green on hover */
     font-weight: bold;
 }
-
-/* Optional: Add a small play icon before the text */
-.card ul li::before {
-    content: "▶ ";
-    color: #2e7d32;
-    font-size: 0.8rem;
-}
