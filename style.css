@@ -1,4 +1,3 @@
-/* style.css */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -75,14 +74,13 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-/* Schemes Section Styling */
 .schemes-section {
     padding: 40px 5%;
     background-color: #ffffff;
 }
 
 .table-wrapper {
-    overflow-x: auto; /* For mobile responsiveness */
+    overflow-x: auto; 
 }
 
 .schemes-table {
@@ -112,20 +110,17 @@ button {
 .schemes-table tr:hover {
     background-color: #f1f8e9;
 }
-/* Modal Background */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6); /* Semi-transparent black */
+    background-color: rgba(0,0,0,0.6); 
     backdrop-filter: blur(5px);
 }
-
-/* Modal Box */
 .modal-content {
     background-color: white;
     margin: 10% auto;
@@ -173,22 +168,18 @@ button {
     font-size: 2.2rem;
     cursor: default;
 }
-
-/* The "Organic" side */
 .agri-part {
     font-family: 'Libre Baskerville', serif;
     font-style: italic;
-    color: #4E432B; /* Earthy Green */
+    color: #4E432B; 
     letter-spacing: -1px;
 }
-
-/* The "Tech" side */
 .next-part {
     font-family: 'Orbitron', sans-serif;
-    color: #1b5e20; /* Darker, solid green */
+    color: #1b5e20; 
     text-transform: uppercase;
     margin-left: 2px;
-    font-size: 1.8rem; /* Slightly smaller to balance the weight */
+    font-size: 1.8rem; 
     transition: color 0.3s ease;
 }
 
@@ -226,7 +217,7 @@ button {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%; 
     height: 0;
 }
 
@@ -277,36 +268,30 @@ button {
     outline: none;
     transition: box-shadow 0.3s ease;
 }
-/* Style the links inside your lists */
 .card ul li a {
-    text-decoration: none; /* Removes the underline */
-    color: #333; /* Keeps text dark like your screenshot */
+    text-decoration: none; 
+    color: #333; 
     transition: color 0.3s ease;
 }
-/* Navigation Link Buttons */
 .nav-btn {
     text-decoration: none;
     color: white;
     font-size: 0.9rem;
     font-weight: 500;
     padding: 8px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft white border */
-    border-radius: 20px; /* Capsule shape */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 20px; 
     transition: all 0.3s ease;
     display: inline-block;
 }
-
-/* Hover effect: Fills in the button */
 .nav-btn:hover {
     background-color: white;
-    color: #2e7d32; /* Agrinext Green */
+    color: #2e7d32; 
     border-color: white;
-    transform: translateY(-2px); /* Slight lift */
+    transform: translateY(-2px); 
 }
-
-/* The Login Button (Making it stand out more) */
 .login-btn {
-    background-color: #81c784; /* Lighter green accent */
+    background-color: #81c784; 
     color: #1b5e20;
     border: none;
     padding: 8px 20px;
@@ -320,30 +305,25 @@ button {
     background-color: white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-/* Navigation Link Buttons */
 .nav-btn {
     text-decoration: none;
     color: white;
     font-size: 0.9rem;
     font-weight: 500;
     padding: 8px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft white border */
-    border-radius: 20px; /* Capsule shape */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 20px; 
     transition: all 0.3s ease;
     display: inline-block;
 }
-
-/* Hover effect: Fills in the button */
 .nav-btn:hover {
     background-color: white;
-    color: #2e7d32; /* Agrinext Green */
+    color: #2e7d32; 
     border-color: white;
-    transform: translateY(-2px); /* Slight lift */
+    transform: translateY(-2px); 
 }
-
-/* The Login Button (Making it stand out more) */
 .login-btn {
-    background-color: #81c784; /* Lighter green accent */
+    background-color: #81c784; 
     color: #1b5e20;
     border: none;
     padding: 8px 20px;
